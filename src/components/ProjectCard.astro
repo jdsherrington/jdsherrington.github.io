@@ -45,31 +45,25 @@ const {
 <div
 	id=`project-${id}`
 	transition:name=`project-${id}`
-	class="project-card card group gap-gutter flex border-b selection:bg-[oklch(var(--accent-foreground))] selection:text-[oklch(var(--accent-background))] sm:flex-row md:flex-col border-r md:mb-gutter"
+	class="project-card card group md:gap-gutter sm:w-col-full md:w-auto flex border-b selection:bg-[oklch(var(--accent-foreground))] selection:text-[oklch(var(--accent-background))] sm:flex-row md:flex-col border-r"
 
 >
-	<div class="w-full flex flex-row">
-	<a
-		id=`project-image-${id}`
-		href={url}
-		transition:name=`project-image-${id}`
-			class="border-border-background group/thumbnail ease-flicker md:h-col-2 z-1 flex h-auto flex-col items-center border border-l-transparent border-t-transparent transition-colors duration-300 sm:h-[calc(100%-(var(--col-gutter))*2)] sm:w-[calc(var(--col-1)+(var(--col-gutter)*2))] md:hover:border-[oklch(var(--accent-foreground))] md:w-full text-border-background hover:text-accent-foreground hover:bg-accent-foreground/5"
-		data-loaded="false"
-		data-id="${id}"
-	>
-		<Icon
-			name={iconPath}
-			alt={iconAlt}
-			onload="this.parentElement.dataset.loaded = 'true'"
-				class="w-30 max-w-3/4 py-4 h-full self-center "	
-		/>
-
-		<!-- <small -->
-		<!-- 	class="text-border-foreground prevent-select border-border-background text-2xs ease-flicker pointer-events-none line-clamp-1 h-[calc(var(--col-gutter))] border-t px-2 py-1 text-right font-mono tracking-widest uppercase transition-all duration-200 sm:hidden md:block md:group-hover/thumbnail:border-[oklch(var(--accent-foreground))] md:group-hover/thumbnail:bg-[oklch(var(--accent-foreground)/0.1)] md:group-hover/thumbnail:text-[oklch(var(--accent-foreground))]" -->
-		<!-- 	>// {imageAlt} -->
-		<!-- </small> -->
+	<div class="sm:w-auto md:w-[calc(100%-(var(--col-gutter)*2))] flex flex-row mt-gutter ml-gutter border border-border-background">
+		<a
+			id=`project-image-${id}`
+			href=`/projects/${id}`
+			transition:name=`project-image-${id}`
+			class="group/thumbnail ease-flicker md:h-col-1 z-1 flex h-auto flex-col items-center border border-transparent md:border-r-border-background transition-colors duration-300 sm:w-col-1 md:w-auto md:hover:border-[oklch(var(--accent-foreground))] text-border-foreground hover:text-accent-foreground hover:bg-accent-foreground/5"
+			data-loaded="false"
+			data-id="${id}">
+			<Icon
+				name={iconPath}
+				alt={iconAlt}
+				onload="this.parentElement.dataset.loaded = 'true'"
+				class="w-3/4 h-full px-4 py-2 self-center box-content"	
+				/>
 		</a>
-		<a href=`https://github.com/jdsherrington/${repo}` class="repo-link w-full z-1 border-b border-border-background  h-min p-2">
+		<a href=`https://github.com/jdsherrington/${repo}` class="repo-link w-full md:h-col-1 z-1 p-gutter-1/2 md:flex items-center sm:hidden">
 			<p class="font-mono uppercase text-2xs tracking-widest leading-4 transition-colors ease-flicker duration-300 text-border-background in-[.repo-link:hover]:text-border-foreground">
 				jdsherrington<br>
 				<span class="text-border-foreground in-[.repo-link:hover]:text-accent-foreground in-[.repo-link:hover]:font-semibold transition-colors ease-flicker duration-300">
@@ -83,11 +77,11 @@ const {
 		id=`project-content-${id}`
 		class="z-1 flex h-auto flex-grow flex-col transition-opacity duration-300 ease-in-out group-hover:opacity-100 sm:w-full sm:pl-0 sm:opacity-100 sm:pt-4 md:opacity-90 md:pt-0"
 	>
-		<a href={url} class="inline-block w-fit">
+		<a href=`/projects/${id}` class="inline-block w-fit">
 			<h1
 				id=`project-title-${id}`
 				transition:name=`project-title-${id}`
-				class="px-gutter sm:text-foreground/80 md:text-foreground/70 md:hover:text-foreground/80 mb-1.5 leading-7 font-[650] tracking-tight text-pretty transition-colors duration-300 ease-in-out sm:text-xl md:text-2xl inline-block"
+				class="px-gutter sm:text-foreground/80 md:text-foreground/70 md:hover:text-foreground/80 mb-1.5 leading-[1.2] text-pretty font-mono uppercase transition-colors duration-300 ease-in-out sm:text-xl md:text-xl inline-block"
 			>
 				{title}
 			</h1>
@@ -118,27 +112,27 @@ const {
 		</div>
 		<div
 			id=`project-button-wrapper-${id}`
-			class="group mt-gutter flex w-full"
+			class="group mt-gutter flex border border-border-background mb-gutter ml-gutter w-[calc(100%-(var(--col-gutter)*2))]"
 		>
 			<div
 				id=`project-decoration-${id}`
-				class="before:ease-flicker ease-flicker border-border-background relative grow-1 border border-r-0 bg-[repeating-linear-gradient(90deg,var(--border-background),var(--border-background)_1px,transparent_1px,transparent_5px)] bg-clip-content transition-all duration-200 before:absolute before:inset-0 before:bg-[repeating-linear-gradient(90deg,oklch(var(--accent-foreground)),oklch(var(--accent-foreground))_1px,transparent_1px,transparent_5px)] before:opacity-0 before:transition-all before:delay-100 before:duration-200 before:content-[''] group-has-[.navigation-button:hover]:md:border-[oklch(var(--accent-foreground))] group-has-[.navigation-button:hover]:md:before:opacity-100"
+				class="before:ease-flicker ease-flicker border-border-background relative grow-1 border-0 bg-[repeating-linear-gradient(90deg,transparent_0,transparent_4%,var(--border-background)_4%,var(--border-background)_calc(4%+1px))] bg-repeat-x bg-clip-content transition-all duration-200 before:absolute before:inset-0 before:bg-[repeating-linear-gradient(90deg,transparent_0,transparent_4%,oklch(var(--accent-foreground))_4%,oklch(var(--accent-foreground))_calc(4%+1px))] before:opacity-0 before:transition-all before:delay-100 before:duration-200 before:content-[''] group-has-[.navigation-button:hover]:md:border-[oklch(var(--accent-foreground))] group-has-[.navigation-button:hover]:md:before:opacity-100 before:border before:border-accent-foreground before:-mb-[1px] before:-mt-[1px]"
 			>
 			</div>
 			<a
 				href={url}
 				id=`project-button-live-${id}`
 				transition:name=`project-button-live-${id}`
-				class="navigation-button rounded-base border-border-background text-foreground/60 ease-flicker relative inline-flex w-fit cursor-pointer place-items-center gap-3 place-self-end border px-4.5 py-3 font-mono text-xs tracking-wider uppercase transition-all duration-200 hover:md:border-[oklch(var(--accent-foreground))] hover:md:bg-[oklch(var(--accent-foreground)/0.1)] hover:md:text-[oklch(var(--accent-foreground))]"
+				class="navigation-button rounded-base border-border-background text-foreground/60 border-0 border-l ease-flicker relative inline-flex w-fit cursor-pointer place-items-center gap-3 place-self-end px-4.5 py-3 font-mono text-xs tracking-wider uppercase transition-all duration-200 hover:md:border-[oklch(var(--accent-foreground))] hover:md:bg-[oklch(var(--accent-foreground)/0.1)] hover:md:text-[oklch(var(--accent-foreground))] before:content-[''] before:inset-0 before:absolute before:border before:-m-[1px] before:opacity-0 md:hover:before:opacity-100 before:border-[oklch(var(--accent-foreground))] before:transition-all before:duration-200 before:ease-flicker"
 			>
 				<span class="">Live</span>
 				<Icon name="ui/open-arrow" class="h-3 w-auto" />
 			</a>
 			<a
-				href={url}
+				href=`/projects/${id}`
 				id=`project-button-more-${id}`
 				transition:name=`project-button-more-${id}`
-				class="navigation-button rounded-base border-border-background text-foreground/60 ease-flicker relative inline-flex w-fit cursor-pointer place-items-center gap-3 place-self-end border px-4.5 py-3 font-mono text-xs tracking-wider uppercase transition-all duration-200 hover:md:border-[oklch(var(--accent-foreground))] hover:md:bg-[oklch(var(--accent-foreground)/0.1)] hover:md:text-[oklch(var(--accent-foreground))]"
+				class="navigation-button rounded-base border-border-background text-foreground/60 border-0 border-l ease-flicker relative inline-flex w-fit cursor-pointer place-items-center gap-3 place-self-end px-4.5 py-3 font-mono text-xs tracking-wider uppercase transition-all duration-200 before:content-[''] before:inset-0 before:absolute before:border before:-m-[1px] before:opacity-0 md:hover:before:opacity-100 before:border-[oklch(var(--accent-foreground))] before:transition-all before:duration-200 before:ease-flicker hover:md:bg-[oklch(var(--accent-foreground)/0.1)] hover:md:text-[oklch(var(--accent-foreground))]"
 			>
 				<span class="">Read More</span>
 				<Icon name="ui/right-arrow" class="h-3 w-auto" />
@@ -147,67 +141,6 @@ const {
 	</div>
 </div>
 
-<!-- <div -->
-<!-- 	transition:name=`project-card-${id}` -->
-<!-- 	class="project-card card" -->
-<!-- 	data-accent={accent} -->
-<!-- > -->
-<!-- 	<a href={url}> -->
-<!-- 		<div class="project-card-img"> -->
-<!-- 			<div class="project-card-icon"> -->
-<!-- 				<Icon name=`${iconPath}` class="logo" /> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
-<!-- 	</a> -->
-<!---->
-<!-- 	<div -->
-<!-- 		transition:name=`project-accent-${id}` -->
-<!-- 		class="project-card-accent card-accent" -->
-<!-- 		data-accent={accent} -->
-<!-- 	> -->
-<!-- 	</div> -->
-<!---->
-<!-- 	<div class="project-card-content"> -->
-<!-- 		<a href={url} class="project-card-title"> -->
-<!-- 			<h1 transition:name=`project-title-${id}`>{title}</h1> -->
-<!-- 		</a> -->
-<!---->
-<!-- 		<p -->
-<!-- 			transition:name=`project-category-${id}` -->
-<!-- 			class="project-card-category" -->
-<!-- 		> -->
-<!-- 			{category} -->
-<!-- 		</p> -->
-<!---->
-<!-- 		<p -->
-<!-- 			transition:name=`project-description-${id}` -->
-<!-- 			class="project-card-description" -->
-<!-- 		> -->
-<!-- 			{description} -->
-<!-- 		</p> -->
-<!---->
-<!-- 		<div transition:name=`project-tags-${id}` class="project-card-tags"> -->
-<!-- 			{ -->
-<!-- 				tags?.map((tag: any) => ( -->
-<!-- 					<CardTag text={tag} collection="projects" /> -->
-<!-- 				)) -->
-<!-- 			} -->
-<!-- 		</div> -->
-<!-- 		<a href={url} class="project-card-arrow-link"> -->
-<!-- 			<svg class="project-card-arrow" viewBox="0 0 492 492"> -->
-<!-- 				<g> -->
-<!-- 					<path -->
-<!-- 						d="M484.14,226.886L306.46,49.202c-5.072-5.072-11.832-7.856-19.04-7.856c-7.216,0-13.972,2.788-19.044,7.856l-16.132,16.136 -->
-<!--                         c-5.068,5.064-7.86,11.828-7.86,19.04c0,7.208,2.792,14.2,7.86,19.264L355.9,207.526H26.58C11.732,207.526,0,219.15,0,234.002 -->
-<!--                         v22.812c0,14.852,11.732,27.648,26.58,27.648h330.496L252.248,388.926c-5.068,5.072-7.86,11.652-7.86,18.864 -->
-<!--                         c0,7.204,2.792,13.88,7.86,18.948l16.132,16.084c5.072,5.072,11.828,7.836,19.044,7.836c7.208,0,13.968-2.8,19.04-7.872 -->
-<!--                         l177.68-177.68c5.084-5.088,7.88-11.88,7.86-19.1C492.02,238.762,489.228,231.966,484.14,226.886z" -->
-<!-- 					></path> -->
-<!-- 				</g> -->
-<!-- 			</svg> -->
-<!-- 		</a> -->
-<!-- 	</div> -->
-<!-- </div> -->
 
 <script>
 const setProjectAccents = () => {

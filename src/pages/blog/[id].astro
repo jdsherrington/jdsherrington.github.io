@@ -61,7 +61,7 @@ if (!images[post.data.imagePath]) {
 }
 ---
 
-<BaseLayout pageTitle={post.data.title}>
+<BaseLayout pageTitle=`JDS / ${post.data.title}`>
 	<div
 		class="blog-page w-col-full gap-gutter rounded-base border-border-background relative flex flex-col place-items-center content-start place-self-center"
 		data-accent={accent}
@@ -83,7 +83,7 @@ if (!images[post.data.imagePath]) {
 		>
 			<div
 				id=`blog-post-sidebar-${post.id}`
-				class="blog-page-sidebar border-border-background sm:mt-col-3 flex h-min flex-col transition-all duration-0 ease-linear sm:relative sm:top-0 sm:ml-[1px] sm:border-b lg:sticky lg:top-[calc(var(--nav-height)-var(--col-gutter))] lg:mt-0 lg:border-b-0"
+				class="blog-page-sidebar border-border-background sm:mt-col-3 flex h-min flex-col transition-all duration-0 ease-linear sm:relative sm:top-0 sm:ml-[1px] sm:border-b lg:sticky lg:top-[calc(var(--nav-height)-var(--col-gutter))] lg:mt-0 lg:border-b"
 			>
 				<div
 					id=`blog-post-thumbnail-${post.id}`
@@ -162,7 +162,7 @@ if (!images[post.data.imagePath]) {
 					<!-- </div> -->
 
 					<div
-						class="mt-gutter group/toc blog-page-table-of-contents rounded-base sm:mx-gutter relative z-50 h-full w-auto flex-row overflow-hidden sm:hidden lg:mx-0 lg:inline-flex"
+						class="mt-[calc(var(--col-gutter)+1rem)] group/toc blog-page-table-of-contents rounded-base sm:mx-gutter relative z-50 h-full w-auto flex-row sm:hidden lg:mx-0 lg:inline-flex before:content-['//_NAVIGATION'] before:select-none before:font-mono before:text-2xs before:tracking-widest before:text-border-foreground before:-top-5 before:right-0 before:w-auto before:h-auto before:absolute"
 					>
 						<div class="scroll-progress"></div>
 						<ul

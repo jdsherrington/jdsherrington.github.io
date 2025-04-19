@@ -1,0 +1,44 @@
+---
+import { getCollection, render } from "astro:content";
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import CardTag from "@/components/CardTag.astro";
+import NavigationButton from "@/components/NavigationButton.astro";
+import { extractOKLCHColors } from "@/lib/extractOKLCHColors";
+import type { CollectionEntry } from "astro:content";
+
+export async function getStaticPaths() {
+	const projects = await getCollection("projects");
+
+	return projects.map((project, index) => ({
+		params: { id: project.id },
+		props: { project },
+	}));
+}
+
+type Props = {
+	project: CollectionEntry<"projects">;
+};
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+
+const accentPalette: any = await extractOKLCHColors(project.data.imagePath);
+const accent = accentPalette[0];
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+	"/src/assets/projects/*.{jpeg,jpg,png,gif,webp}",
+);
+
+if (!images[project.data.imagePath]) {
+	throw new Error(
+		`"${project.data.imagePath}" does not exist in glob: "src/assets/projects/*"`,
+	);
+}
+---
+
+<BaseLayout pageTitle=`JDS / ${project.data.title}`>
+</BaseLayout>

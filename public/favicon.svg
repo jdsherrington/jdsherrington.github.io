@@ -1,13 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 40 22">
-  <g transform="matrix(1, 0, 0, 1, -166, -272)" style="">
-    <path d="M 166 278 L 166 272 L 192 272 L 189 278 L 166 278 Z M 180 281 L 186 283 L 186 288 C 186 291 183 294 180 294 L 166 294 L 166 288 L 178 288 C 178 288 180 288 180 286 L 180 281 Z" style=""></path>
-    <path d="M 193 280 L 196 273 L 199 280 L 206 283 L 199 286 L 196 293 L 193 286 L 186 283 L 193 280 Z" style="">
-    </path>
+<svg
+   xmlns="http://www.w3.org/2000/svg"
+   viewBox="0 0 5.8208332 5.8208337">
+  <g
+     transform="translate(-14.022916,-37.306249)">
+    <g
+       transform="matrix(0.26458333,0,0,0.26458333,-34.242081,-35.586461)">
+      <path
+         d="m 190.66889,283.75 2.75,-8.25 2.75,8.25 8.25,2.75 -8.25,2.75 -2.75,8.25 -2.75,-8.25 -8.25,-2.75 z"
+         style="stroke:none;"
+         />
+    </g>
   </g>
-	<style>
-        path { fill: #222; }
-        @media (prefers-color-scheme: dark) {
-            path { fill: #bbb; }
-        }
-    </style>
-  </svg>
+  <style>
+    path { fill: #222; }
+    @media (prefers-color-scheme: dark) {
+        path { fill: #bbb; }
+    }
+  </style>
+</svg>
+

@@ -39,8 +39,10 @@ const { posts } = Astro.props;
 ---
 
 <BaseLayout
-	pageTitle=`JDS // ${tag.toLowerCase().replace(/\b(\s\w|^\w)/g, function (text: any) { return text.toUpperCase(); })} Posts`
-	`
+	pageTitle = `JDS / Blog / ${tag
+  .replace(/-/g, " ")
+  .toLowerCase() 
+  .replace(/\b\w/g, (char) => char.toUpperCase())}`;
 >
 	<section
 		class="w-col-full relative flex flex-col place-items-center place-self-center"

@@ -13,12 +13,12 @@ const sortedProjects = allProjects.sort(
 	(a: Project, b: Project) => a.data.order - b.data.order,
 );
 
-const pageTitle = "JDS // Projects";
+const pageTitle = "JDS / Projects";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
 	<section
-		class="w-col-full grid grid-cols-[auto] grid-rows-[min-content] items-start gap-[var(--guide-gutter)] pb-96"
+		class="w-col-full grid grid-cols-[auto] grid-rows-[min-content] items-start pb-96"
 	>
 		<div
 			class="grid grid-flow-row gap-[var(--guide-gutter)] place-self-center sm:w-(--full-w) sm:grid-cols-1 md:grid-cols-2 lg:w-(--full-w) lg:grid-cols-3"
